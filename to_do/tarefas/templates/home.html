@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizando a home</title>
+    <link rel="stylesheet" href="{% static 'tarefas/css/home.css' %}">
+</head>
+<body>
+    <h1>
+        Olá {{nome}}! Tude bem?
+    </h1>
+    <form action="{% url 'criar_tarefas'%}" method="GET">{% csrf_token %}
+        <button type="submit">Criar tarefa</button>
+    </form>
+    <br>
+    <form action="{% url 'ver_tarefas'%}" method="GET">{% csrf_token %}
+        <button type="submit">Ver tarefas</button>
+    </form>
+</body>
+</html>

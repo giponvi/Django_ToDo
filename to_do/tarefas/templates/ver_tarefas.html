@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt_br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizando as tarefas</title>
+    <title> Visualizando suas Tarefas</title>
 </head>
 <body>
     <h1>
-        Olá {{nome}}! Tude bem?
+        Aqui estão as suas tarefas!
     </h1>
+    <form action="{% url 'criar_tarefas'%}" method="GET">{% csrf_token %}
+        <button type="submit">Criar tarefa</button>
+    </form>
 </body>
 </html>
