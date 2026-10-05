@@ -30,6 +30,7 @@ def deletar_tarefas(request, id):
         deletar = get_object_or_404(Tarefa, id=id)
         deletar.delete()
         return redirect('ver_tarefas')
+    return redirect('ver_tarefas')
 
 def atualizar_tarefas(request, id):
     atualizar = get_object_or_404(Tarefa, id=id)
