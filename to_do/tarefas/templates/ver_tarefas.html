@@ -7,8 +7,30 @@
 </head>
 <body>
     <h1>
-        Aqui estão as suas tarefas!
+        OLÁ {{nome}}! Aqui estão as suas tarefas
     </h1>
+    <table border = 1>
+        <thead>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Status</th>
+            <th>Data de criação</th>
+        </thead>
+        {% for tarefa in tarefas %}
+            <tr>
+                <td>{{tarefa.nome}}</td>
+                <td>{{tarefa.descricao}}</td>
+                <td>{{tarefa.status}}</td>
+                <td>{{tarefa.data_criacao}}</td>
+                <td><a href="{% url 'deletar_tarefas' tarefa.id%}">APAGAR</a></td>
+                <td><a href="{% url 'atualizar_tarefas' tarefa.id%}">EDITAR</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <form action="{% url 'home'%}" method="GET">{% csrf_token %}
+        <button type="submit">Voltar</button>
+    </form>
+    <br>
     <form action="{% url 'criar_tarefas'%}" method="GET">{% csrf_token %}
         <button type="submit">Criar tarefa</button>
     </form>
